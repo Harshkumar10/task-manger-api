@@ -117,6 +117,7 @@ userSchema.pre('remove',async function(next){
     await Task.deleteMany({owner:user._id});
     next();
 })
+// https://www.freecodecamp.org/news/introduction-to-mongoose-for-mongodb-d2a7aa593c57/
 
 const User=mongoose.model('User',userSchema);
 
