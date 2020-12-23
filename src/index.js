@@ -1,18 +1,19 @@
-const express=require('express');
+const app = require('./app');
+// const express=require('express');
 
-const app=express();
-require('./db/mongoose')
-const User=require('./models/user');
-const Task=require('./models/task');
-const userRouter=require('./routers/user');
-const taskRouter=require('./routers/task');
+// const app=express();
+// require('./db/mongoose')
+// const User=require('./models/user');
+// const Task=require('./models/task');
+// const userRouter=require('./routers/user');
+// const taskRouter=require('./routers/task');
 const multer=require('multer');
 
 
-//const port=process.env.PORT||3000;
+const port=process.env.PORT||3000;
 
-//to deploy the api
-const port=process.env.PORT;
+// //to deploy the api
+// const port=process.env.PORT;
 // to registre a new middleware
 // app.use((req,res,next)=>{
 //     if(req.method==='GET'){
@@ -48,14 +49,14 @@ const upload=multer({
 //     res.status(400).send({error:error.message});
 // })
 
-app.use(express.json());
+// app.use(express.json());
 
-//router creation
-app.use(userRouter);
-app.use(taskRouter);
+// //router creation
+// app.use(userRouter);
+// app.use(taskRouter);
 
 app.listen(port,()=>{
-    console.log('server is on the port'+port);
+    console.log(`server is on the port ${port}`);
 })
 
 // without middleware : new request => run route handler

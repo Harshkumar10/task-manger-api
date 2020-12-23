@@ -82,7 +82,8 @@ userSchema.methods.toJSON = function(){
 
 userSchema.methods.generateAuthToken=async function(){
     const user=this;
-    const token=jwt.sign({ _id:user._id.toString() },process.env.JWT_SECRET);
+    // added experiy date in 1 hour
+    const token=jwt.sign({ _id:user._id.toString() },process.env.JWT_SECRET,{expiresIn:60*60});
 
     user.tokens=user.tokens.concat({token});
     await user.save();
